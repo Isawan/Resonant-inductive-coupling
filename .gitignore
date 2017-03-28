@@ -1,0 +1,5 @@
+references/
+presentation/build
+article/build
+
+*.swp
