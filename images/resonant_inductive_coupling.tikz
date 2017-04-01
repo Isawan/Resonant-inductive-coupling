@@ -1,0 +1,75 @@
+\usetikzlibrary{shapes.geometric,decorations.pathmorphing,patterns,calc}
+
+\begin{tikzpicture}[square/.style={regular polygon,regular polygon sides=4}]
+
+% Oscillator
+\node (oscillator) at (1,.25) [square,draw, minimum width=15mm,fill=lightgray]
+{\tikz \draw[scale=0.07,domain=-3.141:3.141,smooth,variable=\t] plot (\t,{sin(\t r)});};
+\coordinate (pcoila) at ($ (oscillator) + (-.3,2)$);
+\coordinate (pcoilb) at ($ (oscillator) + (.3,2)$);
+\node[circle,fill=black,inner sep=.5mm] (a) at ($(oscillator) + (-1,-0.25)$) {};
+\node[circle,fill=black,inner sep=.5mm] (b) at ($(oscillator) + (-1,0.25)$) {};
+\draw (a) -- (oscillator.west |- a);
+\draw (b) -- (oscillator.west |- b);
+\draw[decoration={aspect=0.2,segment length=1.6mm, amplitude=5mm,coil},decorate] (pcoila) -- (pcoilb);
+\draw (pcoila) -- (pcoila |- oscillator.north);
+\draw (pcoilb) -- (pcoilb |- oscillator.north);
+
+
+% Rectifier
+\node (rectifier) at (5,.25) [square,draw,minimum width=15mm,fill=lightgray] {};
+\coordinate (scoila) at ($ (rectifier) + (-.3,2)$);
+\coordinate (scoilb) at ($ (rectifier) + (.3,2)$);
+\node[circle,fill=black,inner sep=.5mm] (c) at ($(rectifier) + (1,-0.25)$) {};
+\node[circle,fill=black,inner sep=.5mm] (d) at ($(rectifier) + (1,0.25)$) {};
+\draw (c) -- (rectifier.east |- c);
+\draw (d) -- (rectifier.east |- d);
+\draw[decoration={aspect=0.2,segment length=1.6mm, amplitude=5mm,coil},decorate] (scoila) -- (scoilb);
+\draw (scoila) -- (scoila |- rectifier.north);
+\draw (scoilb) -- (scoilb |- rectifier.north);
+% Rectifier symbol
+\coordinate (ra) at ($(rectifier)+(0,-0.2)$);
+\coordinate (rb) at ($(rectifier)+(-.25,.2)$);
+\coordinate (rc) at ($(rectifier)+(.25,.2)$);
+\coordinate (ral) at ($(ra)+(.2,0)$);
+\coordinate (rar) at ($(ra)+(-.2,0)$);
+\draw (rar)--(ra)--(ral);
+\draw[fill=black] (ra)--(rb)--(rc) -- cycle;
+
+
+% Primary resonator
+\coordinate (pcap) at (2,1.25);
+\coordinate (pcapa) at ($(pcap)+(-.05,0)$);
+\coordinate (pcapb) at ($(pcap)+(.05,0)$);
+\coordinate (pcapcoila) at ($ (pcap) + (-.3,1)$) [circle,draw] {};
+\coordinate (pcapcoilb) at ($ (pcap) + (.3,1)$) [circle,draw] {};
+\draw[decoration={aspect=.2,segment length=1.6mm,amplitude=5mm,coil},decorate] (pcapcoila) -- (pcapcoilb);
+\draw (pcapa) -| (pcapcoila);
+\draw (pcapb) -| (pcapcoilb);
+\draw[thick] ($(pcapa) +(0,.2)$) -- ($(pcapa) +(0,-.2)$);
+\draw[thick] ($(pcapb) +(0,.2)$) -- ($(pcapb) +(0,-.2)$);
+
+
+% Secondary resonator
+\coordinate (scap) at (4,1.25);
+\coordinate (scapa) at ($(scap)+(-.05,0)$);
+\coordinate (scapb) at ($(scap)+(.05,0)$);
+\coordinate (scapcoila) at ($ (scap) + (-.3,1)$) [circle,draw] {};
+\coordinate (scapcoilb) at ($ (scap) + (.3,1)$) [circle,draw] {};
+\draw[decoration={aspect=.2,segment length=1.6mm,amplitude=5mm,coil},decorate] (scapcoila) -- (scapcoilb);
+\draw (scapa) -| (scapcoila);
+\draw (scapb) -| (scapcoilb);
+\draw[thick] ($(scapa) +(0,.2)$) -- ($(scapa) +(0,-.2)$);
+\draw[thick] ($(scapb) +(0,.2)$) -- ($(scapb) +(0,-.2)$);
+
+% Labels
+\node at (oscillator) [below=20] {Oscillator};
+\node at (oscillator) [left=30] {Power in};
+\node at (rectifier) [below=20] {Rectifier};
+\node at (rectifier) [right=30] {Power out};
+\node (labelreso) at ($ (pcap)!.5!(scap) $) [below=7mm] {Resonant circuits};
+\path (labelreso) edge[->,thick] ($(pcap)!.25!(labelreso)$);
+\path (labelreso) edge[->,thick] ($(scap)!.25!(labelreso)$);
+
+\end{tikzpicture}
+
