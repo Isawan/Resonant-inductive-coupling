@@ -1,14 +1,29 @@
-\documentclass{tufte-handout}
+\documentclass[a4paper,nobib]{tufte-handout}
 \usepackage{blindtext}
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{microtype}
+\usepackage{biblatex}
+\usepackage{tikz}
+
+\addbibresource{biblio.bib}
 
 \begin{document}
 \title{Resonant inductive coupling}
 \author{Isawan Millican}
 \maketitle
 
-\bibliographystyle{ieeetr}
-\bibliography{biblio}
+Prior to the development of the electric grid,
+there were great efforts to transmit power wirelessly by inductive coupling.
+Early efforts were limited by inefficiency in transmission over larger distances.
+Work carried out by Nikola Tesla in the early 20\textsuperscript{th} century
+demonstrated that improved efficiency can be achieved by resonant inductive coupling.
+More recently, research on efficient transmission at larger distances is being studied.
+In this article we will review the principles of resonant inductive coupling,
+the successes of modern research and some of the applications in the technique.
+
+
+
+\printbibliography
+
 \end{document}
