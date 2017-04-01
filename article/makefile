@@ -23,4 +23,4 @@ $(article_pdf): $(article_tex)
 	latexmk -pdf --outdir=build/ -use-make $(article_tex)
 
 clean:
-	latexmk -c --outdir=build/
+	latexmk -C --outdir=build/
