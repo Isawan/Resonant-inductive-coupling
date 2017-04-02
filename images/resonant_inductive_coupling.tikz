@@ -62,6 +62,20 @@
 \draw[thick] ($(scapa) +(0,.2)$) -- ($(scapa) +(0,-.2)$);
 \draw[thick] ($(scapb) +(0,.2)$) -- ($(scapb) +(0,-.2)$);
 
+% Magnetic field
+\coordinate (fau) at ($(pcoila) + (-.5,.5)$);
+\coordinate (fad) at ($(pcoila) + (-.5,-.5)$);
+\coordinate (fbu) at ($(scoilb) + (.5,.5)$);
+\coordinate (fbd) at ($(scoilb) + (.5,-.5)$);
+\draw [blue] plot [smooth] coordinates {(fau) ($(pcoilb)+(0,.25)$)
+                                              ($(pcapcoilb)!.5!(scapcoila)+(0,.5)$)
+                                              ($(scoila)+(0,.25)$)
+                                              (fbu) };
+\draw [blue] plot [smooth] coordinates {(fad) ($(pcoilb)+(0,-.25)$)
+                                              ($(pcapcoilb)!.5!(scapcoila)+(0,-.5)$)
+                                              ($(scoila)+(0,-.25)$)
+                                              (fbd) };
+
 % Labels
 \node at (oscillator) [below=20] {Oscillator};
 \node at (oscillator) [left=30] {Power in};
