@@ -1,4 +1,4 @@
-\usetikzlibrary{shapes.geometric,decorations.pathmorphing,patterns,calc}
+%\usetikzlibrary{shapes.geometric,decorations.pathmorphing,patterns,calc}
 
 \begin{tikzpicture}[square/.style={regular polygon,regular polygon sides=4}]
 
@@ -63,16 +63,20 @@
 \draw[thick] ($(scapb) +(0,.2)$) -- ($(scapb) +(0,-.2)$);
 
 % Magnetic field
-\coordinate (fau) at ($(pcoila) + (-.5,.5)$);
-\coordinate (fad) at ($(pcoila) + (-.5,-.5)$);
-\coordinate (fbu) at ($(scoilb) + (.5,.5)$);
-\coordinate (fbd) at ($(scoilb) + (.5,-.5)$);
+\coordinate (fau) at ($(pcoila) + (-.3,.5)$);
+\coordinate (fad) at ($(pcoila) + (-.3,-.5)$);
+\coordinate (fbu) at ($(scoilb) + (.3,.5)$);
+\coordinate (fbd) at ($(scoilb) + (.3,-.5)$);
 \draw [blue] plot [smooth] coordinates {(fau) ($(pcoilb)+(0,.25)$)
+                                              ($(pcapcoilb)+(0,0.35)$)
                                               ($(pcapcoilb)!.5!(scapcoila)+(0,.5)$)
+                                              ($(scapcoila)+(0,0.35)$)
                                               ($(scoila)+(0,.25)$)
                                               (fbu) };
 \draw [blue] plot [smooth] coordinates {(fad) ($(pcoilb)+(0,-.25)$)
+                                              ($(pcapcoilb)+(0,-0.35)$)
                                               ($(pcapcoilb)!.5!(scapcoila)+(0,-.5)$)
+                                              ($(scapcoila)+(0,-0.35)$)
                                               ($(scoila)+(0,-.25)$)
                                               (fbd) };
 
