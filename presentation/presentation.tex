@@ -3,9 +3,11 @@
 \usepackage{graphicx}
 \usepackage{physics}
 \usepackage{amsmath}
-\usepackage[backend=biber,style=authortitle]{biblatex}
 \usepackage{tikz}
-%\usepackage[europeanresistors]{circuitikz}
+\usepackage{polyglossia}
+\usepackage{booktabs}
+\setdefaultlanguage{english}
+\usepackage[backend=biber,style=authortitle]{biblatex}
 
 \usetikzlibrary{shapes.geometric,decorations.pathmorphing,patterns,calc}
 
@@ -13,8 +15,10 @@
 
 \beamertemplatenavigationsymbolsempty
 
+\renewcommand{\arraystretch}{2}
+
 \begin{document}
-\title{Resonant inductive coupling}
+\title{Wireless Power Transfer by\\Resonant Inductive Coupling}
 \author{Isawan Millican}
 \institute{
   School of Physics and Astronomy\\
@@ -27,24 +31,50 @@
 \tableofcontents
 \end{frame}
 
-\section{Overview of Electromagnetic Induction}
+\section{Types of wireless power transfer}
 \begin{frame}
-  \frametitle{Overview of Electromagnetic Induction}
+  \frametitle{Types of wireless power transfer}
+  Wireless power transfer can be broadly grouped depending on the effective range.
+  \begin{table}
+    \begin{tabular*}{.75\textwidth}{@{\extracolsep{\fill}} c c}
+      \toprule
+      \textbf{Near-field} & \textbf{Far-Field} \\\hline
+      Inductive coupling  & Microwaves \\
+      Capacitive coupling  & Lasers \\ \bottomrule
+    \end{tabular*}
+    \caption{Types of wireless power transfer scheme}
+  \end{table}
 \end{frame}
 
-\section{Inefficiencies}
+
+\section{Review of Electromagnetic Induction}
 \begin{frame}
-  \frametitle{Inefficiencies}
+  \frametitle{Review of Electromagnetic Induction}
+  \begin{figure}
+      \includegraphics[scale=0.3]{images/faraday.pdf}
+      \caption{Diagram of Faraday's apparatus.
+      Changes in the magnetic field of the left coil induces a current in the right coil.
+      \textcite{hyperphysicsresonate}}
+  \end{figure}
+  Faraday showed in 1831, magnetic fields.
+\end{frame}
+
+
+\section{Wireless power transfer}
+\begin{frame}
+  \frametitle{Wireless power transfer}
   \begin{figure}
     \input{images/inductive_coupling.tikz}
     \caption{A simple induction apparatus to transmit power wirelessly.}
   \end{figure}
   \begin{itemize}
-    \item Magnetic flux through coil is low given medium seperation
+    \item Remove the iron core.
+    \item Magnetic flux through coil is low due to field divergence.
     \item Efficient only if coils are adjacent.
     \item Range can be extended with resonance.
   \end{itemize}
 \end{frame}
+
 
 \section{Resonant circuit}
 \begin{frame}
@@ -52,12 +82,13 @@
   \begin{itemize}
     \item A resonant circuit has a strong response to an oscillating voltage
       with frequency $\omega_0$
-    \item In the inductive system, the voltage is induced by a magnetic field.
+    \item In the induction system, the voltage is induced by a magnetic field.
   \end{itemize}
   \begin{figure}
   \includegraphics[scale=0.3]{images/RLC.png}
   \caption{An RLC circuit
-    and its response to a driving oscillating voltage. \footcite{hyperphysicsresonate}}
+    and its response to a driving oscillating voltage.
+    \textcite{hyperphysicsresonate}}
   \end{figure}
 \end{frame}
 
@@ -65,24 +96,35 @@
 \begin{frame}
   \frametitle{Resonant inductive coupling}
   \begin{itemize}
-    \item Originally discovered by Nikola Tesla.\footcite{tesla}
     \item The resonant responses strongly couples the RLC circuits.
     \item Highly efficient for distances within one wavelength.
   \end{itemize}
   \begin{figure}
     \input{images/resonant_inductive_coupling.tikz}
-    \caption{The divergence of the magnetic field is reduced by the addition of
-    a RLC resonant circuit.}
+    \caption{The divergence of the magnetic field is reduced by the addition
+    of an RLC resonant circuit.}
   \end{figure}
 \end{frame}
 
+\section{Efficiency}
 \begin{frame}
-  \frametitle{Resonant}
+  \frametitle{Efficiency}
+  Theoretical analysis shows for a distance of 5 times greater than the coil radius,
+  the efficiency of the system is 52\%\footcite{Efficient}.
 \end{frame}
 
+\section{Applications}
+\begin{frame}
+  \frametitle{Applications: Smartcard}
+  \begin{figure}
+    \includegraphics[scale=0.75]{images/smartcard.pdf}
+    \caption{A diagram of a smartcard. \textcite{wikiRIC}}
+  \end{figure}
+\end{frame}
 \begin{frame}
   \center
   \begin{block}{Any questions?}
   \end{block}
 \end{frame}
+
 \end{document}
