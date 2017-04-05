@@ -7,4 +7,4 @@ $(presentation_pdf): $(presentation_tex)
 	latexmk -xelatex --outdir=build/ -use-make $(presentation_tex)
 
 clean:
-	latexmk -c --outdir=build/
+	rm -r build/*
