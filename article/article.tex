@@ -1,10 +1,12 @@
-\documentclass[a4paper,nobib]{tufte-handout}
+\documentclass[a4paper,justified,nobib]{tufte-handout}
 \usepackage{blindtext}
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{microtype}
 \usepackage{biblatex}
 \usepackage{tikz}
+
+\usetikzlibrary{shapes.geometric,decorations.pathmorphing,patterns,calc}
 
 \addbibresource{biblio.bib}
 
@@ -13,14 +15,42 @@
 \author{Isawan Millican}
 \maketitle
 
-Prior to the development of the electric grid,
+Prior to the development of the electrical grid,
 there were great efforts to transmit power wirelessly by inductive coupling.
 Early efforts were limited by inefficiency in transmission over larger distances.
 Work carried out by Nikola Tesla in the early 20\textsuperscript{th} century
 demonstrated that improved efficiency can be achieved by resonant inductive coupling.
-More recently, research on efficient transmission at larger distances is being studied.
-In this article we will review the principles of resonant inductive coupling,
-the successes of modern research and some of the applications in the technique.
+In this article, a review of the principles of induction is given.
+An explaination of how resonance can be applied to improve efficiency of the phenomena.
+We then briefly consider applications of resonant inductive 
+
+\begin{figure}
+  \center
+  \input{images/resonant_inductive_coupling.tikz}
+  \caption{Diagram of an experimental apparatus demonstrating resonant inductive coupling.
+    The resonant circuit is a capacitor attached to the resonating coil.
+    The blue lines represent the magnetic field lines induced by the apparatus.}
+\end{figure}
+
+\section{A Review of Electromagnetic Induction}
+
+Electromagnetic induction was first discovered independently by
+Michael Faraday in 1831 and Joseph Henry in 1832.\cite{faradaypublishedfirst}
+A current carrying primary coil of wire generates a magnetic field.
+The magnetic field then induces a current on a secondary coil,
+proportional to the magnetic flux.
+However, the produced magnetic field diverges very quickly outside the coil.
+This meant that induction apparatus were highly inefficient unless the coils
+were directly adjacent.
+
+\section{Improving efficiency to resonance}
+
+The inefficiency of the initial system was overcome by Tesla in 1914 with the
+invention of the Tesla coil\cite{tesla}.
+
+
+
+
 
 
 
