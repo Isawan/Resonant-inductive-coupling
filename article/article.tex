@@ -20,9 +20,40 @@ there were great efforts to transmit power wirelessly by inductive coupling.
 Early efforts were limited by inefficiency in transmission over larger distances.
 Work carried out by Nikola Tesla in the early 20\textsuperscript{th} century
 demonstrated that improved efficiency can be achieved by resonant inductive coupling.
-In this article, a review of the principles of induction is given.
-An explaination of how resonance can be applied to improve efficiency of the phenomena.
+In this article, we start by reviewing some of the key principles of electromagnetic induction.
+We show how induction can be directly used to wirelessly transmit power.
+This is improved by the effect of 
 We then briefly consider applications of resonant inductive 
+
+
+\section{A Review of Electromagnetic Induction}
+
+Since its discovery by Faraday in 1831\cite{faradaypublishedfirst},
+the phenomena of electromagnetic induction has become widely known.
+The original experiment consisted of two coils of wire wrapped on opposite
+sides of an iron core.
+It was demonstrated that an alternating within one of the coil induces
+a current in the secondary coil.
+It is now known this phenomena occurs due to the generated changing magnetic
+field within the soft iron core.
+This phenomena forms the basis of electrical transformers and
+is often highly efficient with typical efficiencies of %TODO:Efficiecy.
+
+\begin{figure}
+  \center
+  \input{images/inductive_coupling.tikz}
+  \caption{Two coils seperated by air transfers energy by
+  electromagnetic induction.
+  The efficiency of this process is very low given medium seperation of the coils.}
+\end{figure}
+
+The phenomena also occurs for coils seperated by air
+although the efficiency is much lower for medium seperation.
+This is because the magnetic field falls $d^{-3}$ with seperation $d$
+due to the magnetic field quickly diverging.
+It is worth noting that reasonable efficiency can be achieved if the coils
+are adjacent.
+However, this is of limited usefulness.
 
 \begin{figure}
   \center
@@ -30,23 +61,14 @@ We then briefly consider applications of resonant inductive
   \caption{Diagram of an experimental apparatus demonstrating resonant inductive coupling.
     The resonant circuit is a capacitor attached to the resonating coil.
     The blue lines represent the magnetic field lines induced by the apparatus.}
+    \label{fig:setupresonance}
 \end{figure}
 
-\section{A Review of Electromagnetic Induction}
+\section{Resonant inductive coupling}
 
-Electromagnetic induction was first discovered independently by
-Michael Faraday in 1831 and Joseph Henry in 1832.\cite{faradaypublishedfirst}
-A current carrying primary coil of wire generates a magnetic field.
-The magnetic field then induces a current on a secondary coil,
-proportional to the magnetic flux.
-However, the produced magnetic field diverges very quickly outside the coil.
-This meant that induction apparatus were highly inefficient unless the coils
-were directly adjacent.
-
-\section{Improving efficiency to resonance}
-
-The inefficiency of the initial system was overcome by Tesla in 1914 with the
-invention of the Tesla coil\cite{tesla}.
+The range and efficiency of the inductor can be greatly improved with electrical resonance.
+The setup in figure\ref{fig:setupresonance} shows how the efficiency can be improved.
+In this se
 
 
 
